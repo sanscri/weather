@@ -4,8 +4,8 @@ import {
   HOURLY_PARAMETER,
   LATITUDE_PARAMETER_NAME,
   LONGTUDE_PARAMETER_NAME, TIMEZONE_PARAMETER
-} from "./util/url";
-import {WeatherResult} from "./types/weatherResult";
+} from "../util/url";
+import {WeatherResult} from "../types/weatherResult";
 
 export class WeatherService {
   public async getWeather(latitude: number, longitude: number): Promise<WeatherResult> {
