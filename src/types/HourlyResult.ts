@@ -1,9 +1,7 @@
 import { HourlyUnits } from "./HourlyUnits";
 import { HourlyContent } from "./HourlyContent";
-import { DailyUnits } from "./DailyUnits";
-import { DailyContent } from "./DailyContent";
 
-export interface WeatherResult {
+export interface HourlyResult {
     latitude: number;
     longitude: number;
     /**
@@ -26,15 +24,6 @@ export interface WeatherResult {
     /**
      * Current weather conditions with the attribute
      */
-    current_weather: {
-        temperature: number;
-        windspeed: number;
-        winddirection: number;
-        weathercode: number;
-        time: string;
-    };
     hourly_units: HourlyUnits;
     hourly: HourlyContent;
-    daily_units: DailyUnits;
-    daily: DailyContent;
 }

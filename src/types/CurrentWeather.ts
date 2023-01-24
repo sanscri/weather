@@ -1,9 +1,4 @@
-import { HourlyUnits } from "./HourlyUnits";
-import { HourlyContent } from "./HourlyContent";
-import { DailyUnits } from "./DailyUnits";
-import { DailyContent } from "./DailyContent";
-
-export interface WeatherResult {
+export interface CurrentWeather {
     latitude: number;
     longitude: number;
     /**
@@ -33,8 +28,4 @@ export interface WeatherResult {
         weathercode: number;
         time: string;
     };
-    hourly_units: HourlyUnits;
-    hourly: HourlyContent;
-    daily_units: DailyUnits;
-    daily: DailyContent;
 }

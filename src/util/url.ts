@@ -18,3 +18,7 @@ export const DAILY_PARAMETER =
     "windspeed_10m_max,windgusts_10m_max,winddirection_10m_dominant,shortwave_radiation_sum&";
 export const TIMEZONE_PARAMETER = "timezone=auto";
 export const CURRENT_WEATHER = "current_weather=true";
+
+// example YYYY-MM-DD
+export const START_DATE_PARAMETER_NAME = "start_date";
+export const END_DATE_PARAMETER_NAME = "start_date";

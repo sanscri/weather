@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useGeolocated } from "react-geolocated";
 import "./App.css";
-import { WeatherService } from "./service/weatherService";
-import { WeatherResult } from "./types/weatherResult";
 import parseISO from "date-fns/parseISO";
-import Daily from "./component/Daily";
 import Hourly from "./component/Hourly";
+import { WeatherService } from "./service/weatherService";
+import { CurrentWeather } from "./types/CurrentWeather";
 const App: React.FC = () => {
     const { coords } = useGeolocated({
         positionOptions: {
@@ -13,18 +12,18 @@ const App: React.FC = () => {
         },
         userDecisionTimeout: 5000,
     });
-    const [weather, setWeather] = useState<WeatherResult>();
-    useEffect(() => {
-        const weatherService = new WeatherService();
-        if (coords?.longitude !== undefined && coords.latitude !== undefined) {
+    const [currentWeather, setCurrentWeather] =
+        React.useState<CurrentWeather>();
+    React.useEffect(() => {
+        if (coords?.latitude !== undefined && coords?.longitude !== undefined) {
+            const weatherService = new WeatherService();
             void weatherService
-                .getWeather(coords?.latitude, coords?.longitude)
-                .then((currentWeather) => {
-                    setWeather(currentWeather);
+                .getCurrentWeather(coords.latitude, coords.longitude)
+                .then((result) => {
+                    setCurrentWeather(result);
                 });
         }
     }, [coords]);
-
     return (
         <div>
             <div>Широта: {coords?.latitude}</div>
@@ -33,32 +32,40 @@ const App: React.FC = () => {
             <div>
                 Время:{" "}
                 {parseISO(
-                    weather?.current_weather?.time ?? "",
+                    currentWeather?.current_weather?.time ?? "",
                 ).toLocaleDateString()}
             </div>
-            <div>Температура: {weather?.current_weather?.temperature} °C</div>
             <div>
-                Скорость ветра: {weather?.current_weather?.windspeed} Км/ч
+                Температура: {currentWeather?.current_weather?.temperature} °C
             </div>
             <div>
-                Направление ветра: {weather?.current_weather?.winddirection} °
+                Скорость ветра: {currentWeather?.current_weather?.windspeed}{" "}
+                Км/ч
+            </div>
+            <div>
+                Направление ветра:{" "}
+                {currentWeather?.current_weather?.winddirection} °
             </div>
             <h1>Прогноз погоды на день</h1>
-            {weather?.hourly != null && weather?.hourly_units != null && (
-                <Hourly
-                    hourlyContent={weather.hourly}
-                    hourlyUnits={weather.hourly_units}
-                />
-            )}
+            {undefined !== coords?.latitude &&
+                coords.longitude !== undefined && (
+                    <Hourly
+                        longitude={coords.longitude}
+                        latitude={coords.latitude}
+                    />
+                )}
             <h1>Прогноз погоды на неделю</h1>
-            {weather?.daily != null && weather?.daily_units != null && (
-                <Daily
-                    dailyContent={weather.daily}
-                    dailyUnits={weather.daily_units}
-                />
-            )}
         </div>
     );
 };
 
 export default App;
+
+/**
+ *  {weather?.daily != null && weather?.daily_units != null && (
+ *                 <Daily
+ *                     dailyContent={weather.daily}
+ *                     dailyUnits={weather.daily_units}
+ *                 />
+ *             )}
+ */
