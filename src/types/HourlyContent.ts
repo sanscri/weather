@@ -43,10 +43,6 @@ export interface HourlyContent {
      */
     freezinglevel_height: number[];
     /**
-     * The most severe weather condition on a given day
-     */
-    weathercode: number[];
-    /**
      * Atmospheric air pressure reduced to mean sea level (msl) or pressure at surface.
      * Typically pressure on mean sea level is used in meteorology.
      * Surface pressure gets lower with increasing elevation.
@@ -85,13 +81,6 @@ export interface HourlyContent {
      * Available soil water is considered. 1 mm evapotranspiration per hour equals 1 liter of water per spare meter.
      */
     evapotranspiration: number[];
-    /**
-     * ET₀ Reference Evapotranspiration of a well watered grass field.
-     * Based on FAO-56 Penman-Monteith equations ET₀ is calculated from temperature, wind speed, humidity and solar radiation.
-     * Unlimited soil water is assumed.
-     * ET₀ is commonly used to estimate the required irrigation for plants.
-     */
-    et0_fao_evapotranspiration: number[];
     /**
      * 	Vapor Pressure Deficit (VPD) in kilopascal (kPa).
      * 	For high VPD (>1.6), water transpiration of plants increases.
@@ -145,44 +134,4 @@ export interface HourlyContent {
     temperature_80m: number[];
     temperature_120m: number[];
     temperature_180m: number[];
-    /**
-     * 	Temperature in the soil at 0, 6, 18 and 54 cm depths.
-     * 	0 cm is the surface temperature on land or water surface temperature on water.
-     */
-    soil_temperature_0cm: number[];
-    /**
-     * 	Temperature in the soil at 0, 6, 18 and 54 cm depths.
-     * 	0 cm is the surface temperature on land or water surface temperature on water.
-     */
-    soil_temperature_6cm: number[];
-    /**
-     * 	Temperature in the soil at 0, 6, 18 and 54 cm depths.
-     * 	0 cm is the surface temperature on land or water surface temperature on water.
-     */
-    soil_temperature_18cm: number[];
-    /**
-     * 	Temperature in the soil at 0, 6, 18 and 54 cm depths.
-     * 	0 cm is the surface temperature on land or water surface temperature on water.
-     */
-    soil_temperature_54cm: number[];
-    /**
-     * Average soil water content as volumetric mixing ratio at 0-1, 1-3, 3-9, 9-27 and 27-81 cm depths.
-     */
-    soil_moisture_0_1cm: number[];
-    /**
-     * Average soil water content as volumetric mixing ratio at 0-1, 1-3, 3-9, 9-27 and 27-81 cm depths.
-     */
-    soil_moisture_1_3cm: number[];
-    /**
-     * Average soil water content as volumetric mixing ratio at 0-1, 1-3, 3-9, 9-27 and 27-81 cm depths.
-     */
-    soil_moisture_3_9cm: number[];
-    /**
-     * Average soil water content as volumetric mixing ratio at 0-1, 1-3, 3-9, 9-27 and 27-81 cm depths.
-     */
-    soil_moisture_9_27cm: number[];
-    /**
-     * Average soil water content as volumetric mixing ratio at 0-1, 1-3, 3-9, 9-27 and 27-81 cm depths.
-     */
-    soil_moisture_27_81cm: number[];
 }

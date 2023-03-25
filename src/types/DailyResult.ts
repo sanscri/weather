@@ -1,4 +1,7 @@
-export interface CurrentWeather {
+import { DailyContent } from "./DailyContent";
+import { DailyUnits } from "./DailyUnits";
+
+export interface DailyResult {
     latitude: number;
     longitude: number;
     /**
@@ -21,10 +24,6 @@ export interface CurrentWeather {
     /**
      * Current weather conditions with the attribute
      */
-    current_weather: {
-        temperature: number;
-        windspeed: number;
-        winddirection: number;
-        time: string;
-    };
+    daily_units: DailyUnits;
+    daily: DailyContent;
 }

@@ -10,6 +10,7 @@ import {
 import { WeatherResult } from "../types/weatherResult";
 import { HourlyResult } from "../types/HourlyResult";
 import { CurrentWeather } from "../types/CurrentWeather";
+import { DailyResult } from "../types/DailyResult";
 
 export class WeatherService {
     public async getWeather(
@@ -27,6 +28,16 @@ export class WeatherService {
         endDate: string,
     ): Promise<HourlyResult> {
         const url = `${BASE_URL}?latitude=${latitude}&longitude=${longitude}&${HOURLY_PARAMETER}&timezone=auto&start_date=${startDate}&end_date=${endDate}`;
+        return await fetch(url).then(async (result) => await result.json());
+    }
+
+    public async getDailyWeather(
+        latitude: number,
+        longitude: number,
+        startDate: string,
+        endDate: string,
+    ): Promise<DailyResult> {
+        const url = `${BASE_URL}?latitude=${latitude}&longitude=${longitude}&${DAILY_PARAMETER}&timezone=auto&start_date=${startDate}&end_date=${endDate}`;
         return await fetch(url).then(async (result) => await result.json());
     }
 

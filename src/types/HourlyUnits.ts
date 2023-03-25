@@ -1,4 +1,4 @@
-export type HourlyUnits = {
+export interface HourlyUnits {
     time: string;
     /**
      * Air temperature at 2 meters above ground
@@ -26,7 +26,6 @@ export type HourlyUnits = {
     snowfall: string;
     snow_depth: string;
     freezinglevel_height: string;
-    weathercode: string;
     pressure_msl: string;
     surface_pressure: string;
     cloudcover: string;
@@ -35,7 +34,6 @@ export type HourlyUnits = {
     cloudcover_high: string;
     visibility: string;
     evapotranspiration: string;
-    et0_fao_evapotranspiration: string;
     vapor_pressure_deficit: string;
     cape: string;
     windspeed_10m: string;
@@ -50,13 +48,4 @@ export type HourlyUnits = {
     temperature_80m: string;
     temperature_120m: string;
     temperature_180m: string;
-    soil_temperature_0cm: string;
-    soil_temperature_6cm: string;
-    soil_temperature_18cm: string;
-    soil_temperature_54cm: string;
-    soil_moisture_0_1cm: string;
-    soil_moisture_1_3cm: string;
-    soil_moisture_3_9cm: string;
-    soil_moisture_9_27cm: string;
-    soil_moisture_27_81cm: string;
-};
+}
