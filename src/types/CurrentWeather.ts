@@ -1,4 +1,4 @@
-export interface CurrentWeather {
+export type CurrentWeather = {
     latitude: number;
     longitude: number;
     /**
@@ -27,4 +27,4 @@ export interface CurrentWeather {
         winddirection: number;
         time: string;
     };
-}
+};

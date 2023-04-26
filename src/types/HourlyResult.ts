@@ -1,7 +1,7 @@
-import { HourlyUnits } from "./HourlyUnits";
-import { HourlyContent } from "./HourlyContent";
+import { type HourlyUnits } from "./HourlyUnits";
+import { type HourlyContent } from "./HourlyContent";
 
-export interface HourlyResult {
+export type HourlyResult = {
     latitude: number;
     longitude: number;
     /**
@@ -26,4 +26,4 @@ export interface HourlyResult {
      */
     hourly_units: HourlyUnits;
     hourly: HourlyContent;
-}
+};

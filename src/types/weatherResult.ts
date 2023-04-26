@@ -1,9 +1,9 @@
-import { HourlyUnits } from "./HourlyUnits";
-import { HourlyContent } from "./HourlyContent";
-import { DailyUnits } from "./DailyUnits";
-import { DailyContent } from "./DailyContent";
+import { type HourlyUnits } from "./HourlyUnits";
+import { type HourlyContent } from "./HourlyContent";
+import { type DailyUnits } from "./DailyUnits";
+import { type DailyContent } from "./DailyContent";
 
-export interface WeatherResult {
+export type WeatherResult = {
     latitude: number;
     longitude: number;
     /**
@@ -37,4 +37,4 @@ export interface WeatherResult {
     hourly: HourlyContent;
     daily_units: DailyUnits;
     daily: DailyContent;
-}
+};

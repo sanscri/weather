@@ -9,6 +9,12 @@
         "plugin:prettier/recommended"
     ],
     "overrides": [
+        {
+            "files": ["*.ts"],
+            "rules": {
+                "@typescript-eslint/consistent-type-definitions": "off"
+            }
+        }
     ],
     "parserOptions": {
         "ecmaVersion": "latest",

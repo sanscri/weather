@@ -1,7 +1,7 @@
-import { DailyContent } from "./DailyContent";
-import { DailyUnits } from "./DailyUnits";
+import { type DailyContent } from "./DailyContent";
+import { type DailyUnits } from "./DailyUnits";
 
-export interface DailyResult {
+export type DailyResult = {
     latitude: number;
     longitude: number;
     /**
@@ -26,4 +26,4 @@ export interface DailyResult {
      */
     daily_units: DailyUnits;
     daily: DailyContent;
-}
+};

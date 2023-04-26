@@ -7,10 +7,10 @@ import {
     LONGTUDE_PARAMETER_NAME,
     TIMEZONE_PARAMETER,
 } from "../util/url";
-import { WeatherResult } from "../types/weatherResult";
-import { HourlyResult } from "../types/HourlyResult";
-import { CurrentWeather } from "../types/CurrentWeather";
-import { DailyResult } from "../types/DailyResult";
+import { type WeatherResult } from "../types/weatherResult";
+import { type HourlyResult } from "../types/HourlyResult";
+import { type CurrentWeather } from "../types/CurrentWeather";
+import { type DailyResult } from "../types/DailyResult";
 
 export class WeatherService {
     public async getWeather(

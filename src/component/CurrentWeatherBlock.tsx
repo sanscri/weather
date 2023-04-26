@@ -1,7 +1,7 @@
 import React from "react";
 import { WeatherService } from "../service/weatherService";
 import parseISO from "date-fns/parseISO";
-import { CurrentWeather } from "../types/CurrentWeather";
+import { type CurrentWeather } from "../types/CurrentWeather";
 
 interface CurrentWeatherProps {
     latitude: number;

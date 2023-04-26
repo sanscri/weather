@@ -1,4 +1,4 @@
-export interface DailyContent {
+export type DailyContent = {
     time: string[];
     /**
      * 	Maximum daily air temperature at 2 meters above ground
@@ -60,4 +60,4 @@ export interface DailyContent {
      * 	The sum of solar radiation on a given day in Megajoules
      */
     shortwave_radiation_sum: number[];
-}
+};

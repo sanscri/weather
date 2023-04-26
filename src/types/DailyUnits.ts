@@ -1,4 +1,4 @@
-export interface DailyUnits {
+export type DailyUnits = {
     time: string;
     temperature_2m_max: string;
     temperature_2m_min: string;
@@ -15,4 +15,4 @@ export interface DailyUnits {
     windgusts_10m_max: string;
     winddirection_10m_dominant: string;
     shortwave_radiation_sum: string;
-}
+};
