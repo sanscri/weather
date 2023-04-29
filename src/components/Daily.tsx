@@ -9,6 +9,7 @@ import { DayBlock } from "./DailyBlock";
 interface DailyProps {
     latitude: number;
     longitude: number;
+    daysCount: number;
 }
 
 const Daily: React.FC<DailyProps> = (props) => {
@@ -19,7 +20,7 @@ const Daily: React.FC<DailyProps> = (props) => {
         const today = new Date();
         const startDate = format(today, "yyyy-MM-dd");
         const endDate = format(
-            today.setDate(today.getDate() + 7),
+            today.setDate(today.getDate() + props.daysCount),
             "yyyy-MM-dd",
         );
         void weatherService
@@ -36,9 +37,7 @@ const Daily: React.FC<DailyProps> = (props) => {
     }, [props]);
     return (
         <div>
-            <h1>Прогноз погоды на 7 дней</h1>
-            {dailyUnits !== undefined &&
-                dailyContent !== undefined &&
+            {dailyUnits && dailyContent  &&
                 dailyContent?.time?.map((_, index) => (
                     <DayBlock
                         key={index}
@@ -65,12 +64,3 @@ const Daily: React.FC<DailyProps> = (props) => {
 };
 
 export default Daily;
-
-/**
- * sunrise={`${parseISO(
- *                             dailyContent.sunrise[index],
- *                         ).toLocaleString("ru-RU")}`}
- *                         sunset={`${parseISO(
- *                             dailyContent.sunset[index],
- *                         ).toLocaleString("ru-RU")}`}
- */

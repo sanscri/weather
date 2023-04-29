@@ -1,0 +1,22 @@
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header li {
+    list-style: none;
+    display: inline-block;
+    padding: 0 20px;
+}
+
+
+header .header-link {
+    text-decoration: inherit;
+    color: #646cff;
+}
+
+header .header-link:hover {
+    color: #883c8a;
+}

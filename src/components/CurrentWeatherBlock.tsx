@@ -21,7 +21,6 @@ const CurrentWeatherBlock: React.FC<CurrentWeatherProps> = (props) => {
     }, [props]);
     return (
         <div>
-            <h1>Погода на сегодня</h1>
             <div>Широта: {currentWeather?.latitude}</div>
             <div>Долгота: {currentWeather?.longitude}</div>
             <div>

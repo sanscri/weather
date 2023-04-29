@@ -1,10 +1,9 @@
 import React from "react";
 import "./App.css";
 import {Route, Routes} from "react-router-dom";
-import {Layout} from "./Layout.tsx";
-import {HomePage} from "./pages/HomePage.tsx";
-import {NoMatchPage} from "./pages/NoMatchPage.tsx";
+import {Layout} from "./layout/Layout.tsx";
 import {TodayPage} from "./pages/TodayPage.tsx";
+import {NoMatchPage} from "./pages/NoMatchPage.tsx";
 import {TomorrowPage} from "./pages/TomorrowPage.tsx";
 import {ThreeDaysPage} from "./pages/ThreeDaysPage.tsx";
 import {SevenDaysPage} from "./pages/SevenDaysPage.tsx";
@@ -16,8 +15,7 @@ const App: React.FC = () => {
     return (<div>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<HomePage />} />
-            <Route path="today" element={<TodayPage />} />
+            <Route index element={<TodayPage />} />
             <Route path="tomorrow" element={<TomorrowPage />} />
             <Route path="3days" element={<ThreeDaysPage />} />
             <Route path="7days" element={<SevenDaysPage />} />
