@@ -31,7 +31,7 @@ const Hourly: React.FC<HourlyProps> = (props) => {
                 setHourlyUnits(result.hourly_units);
                 setHourlyContent(result.hourly);
             });
-    }, []);
+    }, [props]);
     return (
         <div>
             {hourlyUnits !== undefined && (

@@ -33,13 +33,13 @@ const Daily: React.FC<DailyProps> = (props) => {
                 setDailyUnits(result.daily_units);
                 setDailyContent(result.daily);
             });
-    }, []);
+    }, [props]);
     return (
         <div>
             <h1>Прогноз погоды на 7 дней</h1>
             {dailyUnits !== undefined &&
                 dailyContent !== undefined &&
-                dailyContent?.time?.map((item, index) => (
+                dailyContent?.time?.map((_, index) => (
                     <DayBlock
                         key={index}
                         time={dailyContent.time[index]}

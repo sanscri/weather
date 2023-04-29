@@ -18,7 +18,7 @@ const CurrentWeatherBlock: React.FC<CurrentWeatherProps> = (props) => {
             .then((result) => {
                 setCurrentWeather(result);
             });
-    }, []);
+    }, [props]);
     return (
         <div>
             <h1>Погода на сегодня</h1>

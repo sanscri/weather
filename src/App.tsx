@@ -1,54 +1,34 @@
 import React from "react";
-import { useGeolocated } from "react-geolocated";
-import Hourly from "./component/Hourly";
-import Daily from "./component/Daily";
 import "./App.css";
-import CurrentWeatherBlock from "./component/CurrentWeatherBlock";
+import {Route, Routes} from "react-router-dom";
+import {Layout} from "./Layout.tsx";
+import {HomePage} from "./pages/HomePage.tsx";
+import {NoMatchPage} from "./pages/NoMatchPage.tsx";
+import {TodayPage} from "./pages/TodayPage.tsx";
+import {TomorrowPage} from "./pages/TomorrowPage.tsx";
+import {ThreeDaysPage} from "./pages/ThreeDaysPage.tsx";
+import {SevenDaysPage} from "./pages/SevenDaysPage.tsx";
+import {TwoWeeksPage} from "./pages/TwoWeeksPage.tsx";
+import {MonthPage} from "./pages/MonthPage.tsx";
+import {WeekendPage} from "./pages/WeekendPage.tsx";
 
 const App: React.FC = () => {
-    const { coords } = useGeolocated({
-        positionOptions: {
-            enableHighAccuracy: false,
-        },
-        userDecisionTimeout: 5000,
-    });
-
-    return (
-        <div>
-            {undefined !== coords?.latitude &&
-                coords.longitude !== undefined && (
-                    <CurrentWeatherBlock
-                        longitude={coords.longitude}
-                        latitude={coords.latitude}
-                    />
-                )}
-            <h1>Прогноз погоды на день</h1>
-            {undefined !== coords?.latitude &&
-                coords.longitude !== undefined && (
-                    <Hourly
-                        longitude={coords.longitude}
-                        latitude={coords.latitude}
-                    />
-                )}
-            <h1>Прогноз погоды на неделю</h1>
-            {undefined !== coords?.latitude &&
-                coords.longitude !== undefined && (
-                    <Daily
-                        longitude={coords.longitude}
-                        latitude={coords.latitude}
-                    />
-                )}
-        </div>
+    return (<div>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<HomePage />} />
+            <Route path="today" element={<TodayPage />} />
+            <Route path="tomorrow" element={<TomorrowPage />} />
+            <Route path="3days" element={<ThreeDaysPage />} />
+            <Route path="7days" element={<SevenDaysPage />} />
+            <Route path="14days" element={<TwoWeeksPage />} />
+            <Route path="month" element={<MonthPage />} />
+            <Route path="weekend" element={<WeekendPage />} />
+            <Route path="*" element={<NoMatchPage />} />
+          </Route>
+        </Routes>
+    </div>
     );
 };
 
 export default App;
-
-/**
- *  {weather?.daily != null && weather?.daily_units != null && (
- *                 <Daily
- *                     dailyContent={weather.daily}
- *                     dailyUnits={weather.daily_units}
- *                 />
- *             )}
- */
